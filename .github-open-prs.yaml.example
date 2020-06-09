@@ -1,0 +1,16 @@
+#
+# .github-open-prs.yaml
+#
+# Configuation variables for the github-open-prs.rb script.
+#
+
+---
+api_host_url: "https://api.github.com"
+api_token: YOUR_TOKEN_GOES_HERE
+search_days: 30
+teams:
+  - orgA/team1
+  - orgA/team2
+  - orgB/team3
+  - orgC/team4
+user_name: YOUR_GITHUB_USER_NAME

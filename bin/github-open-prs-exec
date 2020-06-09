@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# github-open-prs-exec
+#
+
+#
+# Convert $1 to a canonical path (the realpath utility is not available on all systems).
+#
+getRealPath() {
+  python -c 'import os;print(os.path.realpath(os.path.expanduser("'"$1"'")))';
+}
+
+# Ensure packages installed by brew are available (jq, curl?).
+export PATH="/usr/local/bin:/usr/bin:$PATH";
+
+scriptDir="$(dirname "$(getRealPath "${BASH_SOURCE[0]}")")";
+cd "${scriptDir}/.." || true;
+eval "$(rbenv init -)";
+"$PWD/bin/github-open-prs.rb" 2> /dev/null;
